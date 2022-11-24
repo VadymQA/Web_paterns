@@ -1,17 +1,21 @@
 package Lab_2;
 
 public final class User {
-    private static User instance;
-    public String value;
 
-    private User(UserDB storage) {
+    private String username;
+    private UserDB userDB;
 
+
+    private User(UserDB userDB, String username ) {
+        this.userDB = userDB;
+        this.username = username;
     }
 
-    public static User getStorage(UserDB storage) {
-        if (instance == null) {
-            instance = new User(storage);
-        }
-        return instance;
+    public void setUserDB(UserDB userDB){
+        this.userDB = userDB;
+    }
+
+    public UserDB getUserDB() {
+        return userDB;
     }
 }
